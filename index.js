@@ -9,7 +9,8 @@ const server = express();
 connect();
 
 const routerUsers = require("./api/routers/users.routes");
-// const routerCocteles = require("./api/routers/cocteles.routes");
+const routerOffers = require("./api/routers/offers.routes");
+const routerCandidates = require("./api/routers/candidates.routes");
 
 server.use(cors({
     origin: ["http://localhost:3000", "http://localhost:4200", "http://nombre.vercel.com", "http://127.0.0.1:5500"],
@@ -21,7 +22,8 @@ server.use(express.urlencoded({ extended: true }));
 
 // Rutas
 server.use("/users", routerUsers);
-// server.use("/cocteles", routerCocteles);
+server.use("/offers", routerOffers);
+server.use("/candidates", routerCandidates);
 server.get("/", (req, res) => {
     res.status(200).json({ message: "Bienvenidos a Meettalent" });
 });
