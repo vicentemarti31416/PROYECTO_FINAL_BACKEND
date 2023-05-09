@@ -7,8 +7,8 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const { validateEmail, validatePassword, usedEmail } = require('../../utils/validators');
-const { generateSign, verifySign } = require('../../utils/jwt');
+const { validateEmail, validatePassword, usedEmail } = require('../utils/validators');
+const { generateSign, verifySign } = require('../utils/jwt');
 const router = require('../routers/user.router');
 
 const transporter = nodemailer.createTransport({
@@ -146,7 +146,7 @@ const verify = async (req, res) => {
 };
 
 const verified = (req, res) => {
-    res.sendFile(path.join(__dirname, '../../views/verification.html'));
+    res.sendFile(path.join(__dirname, '../views/verification.html'));
 }
 
 const register = async (req, res) => {
