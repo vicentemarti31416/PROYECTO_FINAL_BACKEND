@@ -114,7 +114,7 @@ const verify = async (req, res) => {
                                     .then((result) => {
                                         UserVerification
                                             .deleteOne({ userId })
-                                            .then(() => res.sendFile(path.join(__dirname, '../../views/verification.html')))
+                                            .then(() => res.sendFile(path.join(__dirname, '../views/verification.html')))
                                             .catch((error) => {
                                                 let message = 'An error ocurred while finalizing the verification process';
                                                 res.redirect(`/user/verified?error=true&message=${message}`);
