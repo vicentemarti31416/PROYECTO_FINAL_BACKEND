@@ -22,10 +22,11 @@ const getOffersById = async (req, res) => {
 
 const createOffers = async (req, res) => {
   try {
-    const { position, company, description, requirements, salary, availability, location, city, contractType, scheduleType } = req.body;
-    const nuevaOferta = new Offers({ position, company, description, requirements, salary, availability, location, city, contractType, scheduleType }); 
+    const { position, company, description, requirements, salary, availability, location, city, contractType, scheduleType , lock} = req.body;
+    const nuevaOferta = new Offers({ position, company, description, requirements, salary, availability, location, city, contractType, scheduleType, lock}); 
     await nuevaOferta.save();
     res.status(201).send(nuevaOferta);
+    
   } catch (error) {
     console.error(error);
     res.status(500).send({ error: "Error al crear la oferta" });
