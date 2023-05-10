@@ -22,8 +22,10 @@ const getOffersById = async (req, res) => {
 
 const createOffers = async (req, res) => {
   try {
-    const { position, company, description, requirements, salary, availability, location, city, contractType, scheduleType , lock} = req.body;
-    const nuevaOferta = new Offers({ position, company, description, requirements, salary, availability, location, city, contractType, scheduleType, lock}); 
+
+    const { position, company, description, requirements, keywords, salary, availability, location, city, contractType, scheduleType, lock } = req.body;
+    const nuevaOferta = new Offers({ position, company, description, requirements, keywords, salary, availability, location, city, contractType, scheduleType, lock }); 
+
     await nuevaOferta.save();
     res.status(201).send(nuevaOferta);
     
