@@ -11,6 +11,7 @@ const candidatesSchema = new Schema (
         contact: {type: {String}, required: true },
         age: {type: Number, required: true },
         location: {type: String, required: true },
+        city: {type: String, required: true },
         email: {type: String, required: false },
         phone: {type: Number, required: true },
         keywords: {type:[String], required: true },
