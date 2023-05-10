@@ -15,6 +15,7 @@ const offersSchema = new Schema (
         city: {type: String, required: false },
         contractType: {type: String, required: false},
         scheduleType: {type: String, required: false},
+        lock: {type: Boolean, required: true}
     }
 )
 
