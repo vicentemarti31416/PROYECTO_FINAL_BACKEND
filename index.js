@@ -14,7 +14,7 @@ const routerOffers = require("./api/routers/offers.routes");
 const routerCandidates = require("./api/routers/candidates.routes");
 
 server.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:4200", "http://nombre.vercel.com", "http://127.0.0.1:5500"],
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:4200", "http://nombre.vercel.com", "http://127.0.0.1:5500"],
     credentials: true,
     methods: 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
     allowedHeaders: 'Content-Type, Authorization, Access-Control-Allow-Origin',

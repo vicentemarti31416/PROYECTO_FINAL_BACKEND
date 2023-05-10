@@ -35,16 +35,13 @@ transporter.verify((error, success) => {
 })
 
 const sendVerificationEmail = ({ _id, email }, res) => {
-    const currentUri = 'http://127.0.0.1:8000/'; // Si la aplicación está en un host esta URI será distinta
+    const currentUri = 'http://localhost:8000/'; // Si la aplicación está en un host esta URI será distinta
     const uniqueString = uuidv4() + _id;
     const mailOptions = {
         from: process.env.AUTH_EMAIL,
         to: email,
         subject: 'Verify your email',
-        html: `
-            <p>Verify your address to complete de registry process</p>
-            <p>This link <b>expires in six hours</b></p>
-            <a href=${currentUri + "user/verify/" + _id + "/" + uniqueString} target="_blank">Verify your email</a>`
+        html: `<a href="http://localhost:8000/user/verify/${_id}/${uniqueString}" target="_blank">Verify your email</a>`
     };
 
     const saltRounds = 10;
@@ -236,8 +233,7 @@ const sendResetEmail = ({ _id, email }, redirectUri, res) => {
                 subject: 'Password Reset',
                 html: `
                     <p>Use the link below to reset the password</p>
-                    <p>This link <b>expires in one hour</b></p>
-                    <a href=${redirectUri + "/" + _id + "/" + resetString} target="_blank">Verify your email</a>`
+                    <a href=${"http://localhost:3000/restablecerContrasenaContrasena/" + _id + "/" + resetString} target="_blank">Verify your email</a>`
             };
             const saltRounds = 10;
             bcrypt
